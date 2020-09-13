@@ -1,5 +1,4 @@
-﻿using LoadData;
-using ModelsData;
+﻿using ModelsData;
 using ModelsData.XML;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,14 +39,7 @@ namespace LogicalWork.ManagerSpecification
             Specification specification = _model as Specification;
 
             SetLog(message: "Начало работы по получению результата");
-            //foreach (Order order in specification.Orders)
-            //{
-            //    foreach (object o in specification)
-            //    {
-            //        IEnumerable<Item> collection = o as IEnumerable<Item>;
-            //        ResultOneOrder(order: order, items: collection);
-            //    }
-            //}
+
             foreach (Order order in specification.Orders)
             {
                 IEnumerable<Item> collection = specification.Items.Where(predicate: item => item.OrderId == order.Id);

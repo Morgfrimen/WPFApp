@@ -1,6 +1,4 @@
-﻿using LogicalWork;
-
-namespace LoadData
+﻿namespace LogicalWork
 {
     public interface IWork
     {

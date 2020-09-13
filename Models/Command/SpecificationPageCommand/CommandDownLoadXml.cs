@@ -6,6 +6,7 @@ using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LogicalWork;
 using WPFApp.ViewModels;
 
 namespace WPFApp.Models.Command.SpecificationPageCommand
@@ -26,6 +27,7 @@ namespace WPFApp.Models.Command.SpecificationPageCommand
         public void Execute(object parameter)
         {
             var specificationPageViewModel = parameter as SpecificationPageViewModel;
+            // ReSharper disable once PossibleNullReferenceException
             if (string.IsNullOrEmpty(specificationPageViewModel.Path))
             {
                 Log.Log.SetLog(Tag, "Параметр команды оказался пустым!");

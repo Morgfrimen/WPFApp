@@ -9,14 +9,13 @@ namespace WPFApp.ViewModels
     public class MainWindowViewModels : INotifyPropertyChanged
     {
         private bool _selectedXmlTreeView;
-        private ICommand _relayCommand;
+        private readonly ICommand _relayCommand;
         private string _statusMessage;
-        private string _statusLoad;
 
         public MainWindowViewModels()
         {
             _relayCommand = new CommandSelectTreeViewItemXml();
-            StatusMessage = WPFApp.Properties.Resources.StatusBar_AppRunToWork;
+            StatusMessage = Properties.Resources.StatusBar_AppRunToWork;
         }
 
         public bool SelectedXmlTreeView

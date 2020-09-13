@@ -117,8 +117,7 @@ namespace UnitTestLib
                 new Item(){Id = Guid.NewGuid().ToString(),Name = "Часть 5",OrderId = specification.Orders[5-1].Id,Weight = 100}
             };
 
-            SpecificationXmlWork specificationXmlWork = new SpecificationXmlWork(specification);
-            specificationXmlWork.MaxWeight = 30;
+            SpecificationXmlWork specificationXmlWork = new SpecificationXmlWork(specification) {MaxWeight = 30};
 
             ViewTableData expected = new ViewTableData()
             {
@@ -140,6 +139,8 @@ namespace UnitTestLib
                 var expect = expected.ArrayList[index] as ResultSpecification;
                 var ac = actual.ArrayList[index] as ResultSpecification;
                 Console.WriteLine(index);
+                // ReSharper disable once PossibleNullReferenceException
+                // ReSharper disable once ArgumentsStyleNamedExpression
                 Assert.AreEqual(expect.CountContainer, ac.CountContainer);
                 Assert.AreEqual(expect.CountNotDimensional, ac.CountNotDimensional);
             }
@@ -180,8 +181,7 @@ namespace UnitTestLib
                 new Item() {Id = Guid.NewGuid().ToString(), Name = "Часть 5", OrderId = specification.Orders[5 - 1].Id, Weight = 100}
             };
 
-            SpecificationXmlWork specificationXmlWork = new SpecificationXmlWork(specification);
-            specificationXmlWork.MaxWeight = 30;
+            SpecificationXmlWork specificationXmlWork = new SpecificationXmlWork(specification) {MaxWeight = 30};
 
             ViewTableData expected = new ViewTableData()
             {

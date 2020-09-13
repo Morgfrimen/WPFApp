@@ -7,18 +7,23 @@ namespace WPFApp.Models.Command
 {
     public sealed class CommandSelectTreeViewItemXml : ICommand
     {
-        private bool flag;
+        private bool _flag;
         public bool CanExecute(object parameter)
         {
-            return !flag;
+            return !_flag;
         }
 
         public void Execute(object parameter)
         {
             Frame frame = parameter as Frame;
-            flag = frame.NavigationService.Navigate(new SpecificationPage());
+            // ReSharper disable once PossibleNullReferenceException
+            _flag = frame.NavigationService.Navigate(new SpecificationPage());
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
     }
 }

@@ -5,6 +5,7 @@ namespace WPFApp.View
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    // ReSharper disable once RedundantExtendsListEntry
     public partial class MainWindow : Window
     {
         public MainWindow()

@@ -9,8 +9,8 @@ namespace WPFApp.ViewModels
 {
     public sealed class SpecificationPageViewModel : MainWindowViewModels
     {
-        private ICommand _commandOpenFileDialog;
-        private ICommand _downloadXmlCommand;
+        private readonly ICommand _commandOpenFileDialog;
+        private readonly ICommand _downloadXmlCommand;
         private string _path;
         private IEnumerable<ResultSpecification> _resultSpecificationsItems;
         private string _buttonDownLoadContent;

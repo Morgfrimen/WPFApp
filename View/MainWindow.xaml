@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:res="clr-namespace:WPFApp.Properties"
-        xmlns:page="clr-namespace:WPFApp.View"
         xmlns:vm="clr-namespace:WPFApp.ViewModels"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
@@ -15,7 +14,7 @@
     </Window.DataContext>
     <Window.Resources>
         <Style x:Key="TreeViewItem" TargetType="TreeViewItem">
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
     </Window.Resources>
     <Grid>
@@ -29,7 +28,8 @@
         </Grid.ColumnDefinitions>
 
         <TreeView Grid.Column="0">
-            <TreeViewItem Header="XML" IsSelected="{Binding SelectedXmlTreeView, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <TreeViewItem Style="{StaticResource TreeViewItem}" Header="XML"
+                          IsSelected="{Binding SelectedXmlTreeView, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Selected">
                         <i:InvokeCommandAction
@@ -40,24 +40,24 @@
             </TreeViewItem>
         </TreeView>
 
-        <Frame x:Name="Frame" Grid.Column="1" NavigationUIVisibility="Hidden" >
+        <Frame x:Name="Frame" Grid.Row="0" Grid.Column="1" NavigationUIVisibility="Hidden">
             <Frame.Content>
                 <TextBlock Text="{x:Static res:Resources.MainWindow_Frame_DefaultText}"
-                           VerticalAlignment="Center" 
-                           HorizontalAlignment="Center"/>
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center" />
             </Frame.Content>
         </Frame>
 
 
-        <StatusBar Grid.Row="1" Grid.ColumnSpan="2">
+        <StatusBar Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0">
             <StatusBar.Resources>
                 <Style x:Key="TextBlockMessage" TargetType="TextBlock">
                     <Setter Property="Background" Value="{x:Null}" />
                 </Style>
             </StatusBar.Resources>
-            
-            <TextBlock Text="{Binding StatusMessage}" Style="{StaticResource TextBlockMessage}"></TextBlock>
-            
+
+            <TextBlock Text="{Binding StatusMessage}" Style="{StaticResource TextBlockMessage}" />
+
         </StatusBar>
     </Grid>
 </Window>

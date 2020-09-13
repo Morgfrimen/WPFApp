@@ -73,7 +73,7 @@ namespace LoadData
                 catch (System.Exception e)
                 {
                     SetLog(e.Message);
-                    throw e;
+                    throw;
                 }
             }
         }
