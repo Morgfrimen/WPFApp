@@ -14,6 +14,7 @@ namespace WPFApp.ViewModels
         private string _path;
         private IEnumerable<ResultSpecification> _resultSpecificationsItems;
         private string _buttonDownLoadContent;
+        private string _statusTime;
 
         public SpecificationPageViewModel()
         {
@@ -25,6 +26,14 @@ namespace WPFApp.ViewModels
         public ICommand OpenFileDialog
         {
             get { return _commandOpenFileDialog; }
+        }
+
+
+
+        public string StatusTime
+        {
+            get { return _statusTime; }
+            set { _statusTime = value; OnPropertyChanged(nameof(StatusTime)); }
         }
 
         public string ButtonDownLoadContent

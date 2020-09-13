@@ -39,7 +39,7 @@
         </EventTrigger>
     </Page.Triggers>
 
-    <Grid>
+    <Grid x:Name="MainGridPage">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*" />
             <ColumnDefinition Width="70*" />
@@ -49,6 +49,7 @@
             <RowDefinition Height="10*" />
             <RowDefinition Height="80*" />
             <RowDefinition Height="10*" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
         <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
@@ -72,9 +73,16 @@
 
 
         <Button Grid.Column="1" Grid.Row="2"
-                Content="{x:Static res:Resources.SpecificationPage_Button_Download}"
+                Content="{Binding ButtonDownLoadContent,UpdateSourceTrigger=PropertyChanged}"
                 Style="{StaticResource ButtonStyle}"
                 Command="{Binding DownloadXmlCommand}"
                 CommandParameter="{Binding ElementName=ViewModel}" />
+
+        <StatusBar Background="{x:Null}" Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0">
+            <Grid Width="{Binding ElementName=MainGridPage, Path=ActualWidth}">
+                <TextBlock Text="{Binding StatusTime,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="15,5"
+                           HorizontalAlignment="Right" />
+            </Grid>
+        </StatusBar>
     </Grid>
 </Page>

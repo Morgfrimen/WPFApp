@@ -17,7 +17,7 @@
             <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition />
@@ -47,7 +47,7 @@
             </TreeViewItem>
         </TreeView>
 
-        <Frame x:Name="Frame" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden">
+        <Frame x:Name="Frame" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" NavigationUIVisibility="Hidden">
             <Frame.Content>
                 <TextBlock Text="{x:Static res:Resources.MainWindow_Frame_DefaultText}"
                            VerticalAlignment="Center"
@@ -56,14 +56,18 @@
         </Frame>
 
 
-        <StatusBar Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
+        <StatusBar Background="{x:Null}" Grid.Row="2" Grid.Column="0">
             <StatusBar.Resources>
                 <Style x:Key="TextBlockMessage" TargetType="TextBlock">
-                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="Padding" Value="25,5" />
                 </Style>
             </StatusBar.Resources>
 
-            <TextBlock Text="{Binding StatusMessage}" Style="{StaticResource TextBlockMessage}" />
+            <Grid Width="{Binding ElementName=MainGrid, Path=ActualWidth}">
+                <TextBlock Text="{Binding StatusMessage,UpdateSourceTrigger=PropertyChanged}"
+                           Style="{StaticResource TextBlockMessage}" />
+               
+            </Grid>
 
         </StatusBar>
     </Grid>
