@@ -83,6 +83,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Command\CommandOpenFileDialog.cs" />
     <Compile Include="Models\Command\CommandSelectTreeViewItemXml.cs" />
+    <Compile Include="Models\Command\SimpleCommand.cs" />
     <Compile Include="Models\Command\SpecificationPageCommand\CommandDownLoadXml.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\Resources.en-US.Designer.cs">
@@ -144,6 +145,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="lib\Extension\Extension.csproj">
+      <Project>{c04aab30-5a9b-4948-acad-681918be1e76}</Project>
+      <Name>Extension</Name>
+    </ProjectReference>
     <ProjectReference Include="lib\LoadData\LoadData.csproj">
       <Project>{a64685a1-69ce-4308-8aff-b2e8147bf9fb}</Project>
       <Name>LoadData</Name>

@@ -120,6 +120,12 @@
   <data name="MainWindow_Frame_DefaultText" xml:space="preserve">
     <value>Выбирите слева необходимый режим работы</value>
   </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Menu_Settings_ClearLog" xml:space="preserve">
+    <value>Очистить логи</value>
+  </data>
   <data name="SpecificationPage_Button_Download" xml:space="preserve">
     <value>Загрузить</value>
   </data>

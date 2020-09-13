@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicalWork", "lib\LogicalW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestLib", "test\UnitTestLib\UnitTestLib.csproj", "{5417F46F-CBFC-497D-B3D7-F232FB72187F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension", "lib\Extension\Extension.csproj", "{C04AAB30-5A9B-4948-ACAD-681918BE1E76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,14 @@ Global
 		{5417F46F-CBFC-497D-B3D7-F232FB72187F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5417F46F-CBFC-497D-B3D7-F232FB72187F}.Release|x64.ActiveCfg = Release|x64
 		{5417F46F-CBFC-497D-B3D7-F232FB72187F}.Release|x64.Build.0 = Release|x64
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Debug|x64.Build.0 = Debug|Any CPU
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Release|x64.ActiveCfg = Release|Any CPU
+		{C04AAB30-5A9B-4948-ACAD-681918BE1E76}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

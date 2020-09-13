@@ -70,6 +70,24 @@ namespace WPFApp.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Настройки.
+        /// </summary>
+        public static string Menu_Settings {
+            get {
+                return ResourceManager.GetString("Menu_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Очистить логи.
+        /// </summary>
+        public static string Menu_Settings_ClearLog {
+            get {
+                return ResourceManager.GetString("Menu_Settings_ClearLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Загрузить.
         /// </summary>
         public static string SpecificationPage_Button_Download {

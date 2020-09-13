@@ -39,6 +39,7 @@ namespace WPFApp.Models.Command.SpecificationPageCommand
             ArrayList arrayListresult;
             Task task = new Task(() =>
             {
+                //TODO: Если файл небольшой, то потребности в ногопотоке нет
                 arrayListresult = _specificationWork.GetResultAsync().ArrayList;
                 specificationPageViewModel.ResultSpecificationsItems = arrayListresult.Cast<ResultSpecification>();
                 _loadFile = false;

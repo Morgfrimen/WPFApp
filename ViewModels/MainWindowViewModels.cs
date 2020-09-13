@@ -10,11 +10,13 @@ namespace WPFApp.ViewModels
     {
         private bool _selectedXmlTreeView;
         private readonly ICommand _relayCommand;
+        private readonly ICommand _clearLogCommand;
         private string _statusMessage;
 
         public MainWindowViewModels()
         {
             _relayCommand = new CommandSelectTreeViewItemXml();
+            _clearLogCommand = new SimpleCommand((ob) => Log.Log.ClearLog());
             StatusMessage = Properties.Resources.StatusBar_AppRunToWork;
         }
 
@@ -40,7 +42,12 @@ namespace WPFApp.ViewModels
             set { _statusMessage = value; OnPropertyChanged(nameof(StatusMessage)); }
         }
 
-        #region Интерфейс
+        public ICommand ClearLogCommand
+        {
+            get { return _clearLogCommand; }
+        }
+
+#region Интерфейс
 
         public event PropertyChangedEventHandler PropertyChanged;
 
