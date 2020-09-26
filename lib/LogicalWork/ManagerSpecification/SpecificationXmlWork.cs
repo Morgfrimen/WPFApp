@@ -59,7 +59,7 @@ namespace LogicalWork.ManagerSpecification
                     action: () =>
                     {
                         IEnumerable<Item> collection = specification.Items.Where
-                            (predicate: item => item.OrderId == order.Id);
+                            (predicate: item => item.OrderId == order.Id).ToList();
                         ResultOneOrder(order: order, items: collection);
                     }
                 );
@@ -141,7 +141,7 @@ namespace LogicalWork.ManagerSpecification
             SetLog(message: "Начало работа алгоритма по упаковки частей заказа");
 
             //Сортировка по возврастанию
-            IOrderedEnumerable<Item> collection = items.OrderBy(keySelector: i => i.Weight);
+            IEnumerable<Item> collection = items.OrderBy(keySelector: i => i.Weight).ToList();
 
             uint countConteiner = default;
             uint conteiterWeight = default;
