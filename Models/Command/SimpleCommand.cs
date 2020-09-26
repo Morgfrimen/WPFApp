@@ -7,6 +7,7 @@ namespace WPFApp.Models.Command
     {
         private readonly Action<object> _action;
         private readonly Func<object, bool> _func;
+
         public SimpleCommand(Action<object> action, Func<object, bool> func = null)
         {
             _action = action;
@@ -16,13 +17,14 @@ namespace WPFApp.Models.Command
         public bool CanExecute(object parameter)
         {
             if (_func != default)
-                return _func.Invoke(parameter);
+                return _func.Invoke(arg: parameter);
+
             return true;
         }
 
         public void Execute(object parameter)
         {
-            _action.Invoke(parameter);
+            _action.Invoke(obj: parameter);
         }
 
         public event EventHandler CanExecuteChanged

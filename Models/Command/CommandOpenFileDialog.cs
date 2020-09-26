@@ -16,7 +16,8 @@ namespace WPFApp.Models.Command
 
         public void Execute(object parameter)
         {
-            SpecificationPageViewModel specificationPageViewModel = parameter as SpecificationPageViewModel;
+            SpecificationPageViewModel specificationPageViewModel =
+                parameter as SpecificationPageViewModel;
             _openFileDialog = new OpenFileDialog
             {
                 DefaultExt = ".xml",
@@ -24,10 +25,11 @@ namespace WPFApp.Models.Command
                 Filter = "XML File (*.xml)|*.xml"
             };
             _openFileDialog.ShowDialog();
+
             // ReSharper disable once PossibleNullReferenceException
             specificationPageViewModel.Path = _openFileDialog.FileName;
         }
-        
+
         public event EventHandler CanExecuteChanged;
     }
 }

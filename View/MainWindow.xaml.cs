@@ -1,10 +1,13 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Threading;
+using System.Windows;
 
 namespace WPFApp.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    ///     Логика взаимодействия для MainWindow.xaml
     /// </summary>
+
     // ReSharper disable once RedundantExtendsListEntry
     public partial class MainWindow : Window
     {
@@ -15,10 +18,8 @@ namespace WPFApp.View
 
         public MainWindow(string codeLanguage)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(codeLanguage);
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(name: codeLanguage);
             InitializeComponent();
         }
-
-
     }
 }

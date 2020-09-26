@@ -6,7 +6,7 @@ namespace LogicalWork
     {
         public ViewTableData()
         {
-            this.ArrayList = new ArrayList();
+            ArrayList = new ArrayList();
         }
 
         public ArrayList ArrayList { get; set; }

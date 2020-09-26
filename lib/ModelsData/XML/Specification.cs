@@ -29,7 +29,8 @@ namespace ModelsData.XML
 
         public ArrayList GetValueModels()
         {
-            ArrayList arrayList = new ArrayList { this.Orders, this.Items };
+            ArrayList arrayList = new ArrayList {Orders, Items};
+
             return arrayList;
         }
     }

@@ -1,6 +1,6 @@
-﻿using LogicalWork.ManagerSpecification;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
+using LogicalWork.ManagerSpecification;
 using WPFApp.Models.Command;
 using WPFApp.Models.Command.SpecificationPageCommand;
 using WPFApp.Properties;
@@ -9,54 +9,60 @@ namespace WPFApp.ViewModels
 {
     public sealed class SpecificationPageViewModel : MainWindowViewModels
     {
-        private readonly ICommand _commandOpenFileDialog;
-        private readonly ICommand _downloadXmlCommand;
+        private string _buttonDownLoadContent;
         private string _path;
         private IEnumerable<ResultSpecification> _resultSpecificationsItems;
-        private string _buttonDownLoadContent;
         private string _statusTime;
 
         public SpecificationPageViewModel()
         {
-            _commandOpenFileDialog = new CommandOpenFileDialog();
-            _downloadXmlCommand = new CommandDownLoadXml();
+            OpenFileDialog = new CommandOpenFileDialog();
+            DownloadXmlCommand = new CommandDownLoadXml();
             ButtonDownLoadContent = Resources.SpecificationPage_Button_Download;
         }
 
-        public ICommand OpenFileDialog
-        {
-            get { return _commandOpenFileDialog; }
-        }
-
-
+        public ICommand OpenFileDialog { get; }
 
         public string StatusTime
         {
             get { return _statusTime; }
-            set { _statusTime = value; OnPropertyChanged(nameof(StatusTime)); }
+            set
+            {
+                _statusTime = value;
+                OnPropertyChanged(propertyName: nameof(StatusTime));
+            }
         }
 
         public string ButtonDownLoadContent
         {
             get { return _buttonDownLoadContent; }
-            set { _buttonDownLoadContent = value; OnPropertyChanged(nameof(ButtonDownLoadContent)); }
+            set
+            {
+                _buttonDownLoadContent = value;
+                OnPropertyChanged(propertyName: nameof(ButtonDownLoadContent));
+            }
         }
 
         public string Path
         {
             get { return _path; }
-            set { _path = value; OnPropertyChanged(nameof(Path)); }
+            set
+            {
+                _path = value;
+                OnPropertyChanged(propertyName: nameof(Path));
+            }
         }
 
-        public ICommand DownloadXmlCommand
-        {
-            get { return _downloadXmlCommand; }
-        }
+        public ICommand DownloadXmlCommand { get; }
 
         public IEnumerable<ResultSpecification> ResultSpecificationsItems
         {
             get { return _resultSpecificationsItems; }
-            set { _resultSpecificationsItems = value; OnPropertyChanged(nameof(ResultSpecificationsItems)); }
+            set
+            {
+                _resultSpecificationsItems = value;
+                OnPropertyChanged(propertyName: nameof(ResultSpecificationsItems));
+            }
         }
     }
 }

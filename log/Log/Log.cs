@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using Extension;
 
 namespace Log
 {
     /// <summary>
-    /// Класс дял формирования лога
+    ///     Класс дял формирования лога
     /// </summary>
     public static class Log
     {
@@ -17,28 +16,27 @@ namespace Log
         {
             lock (Locker)
             {
-                if (!Directory.Exists(Path))
-                {
-                    Directory.CreateDirectory(Path);
-                }
+                if (!Directory.Exists(path: Path))
+                    Directory.CreateDirectory(path: Path);
 
-                using (StreamWriter streamWriter = new StreamWriter(Path + $@"\{DateTime.Now:ddMM_HH}.log", true))
+                using (StreamWriter streamWriter = new StreamWriter
+                    (path: Path + $@"\{DateTime.Now:ddMM_HH}.log", append: true))
                 {
                     string messageLog = $"---{DateTime.Now:g}---{Environment.NewLine}"
                                         + tag
                                         + Environment.NewLine
                                         + message
                                         + Environment.NewLine
-                                        + new string('-', 30);
-                    streamWriter.WriteLine(messageLog);
+                                        + new string(c: '-', count: 30);
+                    streamWriter.WriteLine(value: messageLog);
                 }
             }
         }
 
         public static void ClearLog()
         {
-            DirectoryInfo folder = new DirectoryInfo(Path);
-            folder.GetFiles().ForEach(file => file.Delete());
+            DirectoryInfo folder = new DirectoryInfo(path: Path);
+            folder.GetFiles().ForEach(action: file => file.Delete());
         }
     }
 }

@@ -3,15 +3,15 @@
 namespace LoadData
 {
     /// <summary>
-    /// Интерфейс для загрузчиков
+    ///     Интерфейс для загрузчиков
     /// </summary>
     public interface ILoader
     {
+        IModel Model { get; }
+
         /// <summary>
-        /// Загрузка данных
+        ///     Загрузка данных
         /// </summary>
         void LoadData();
-
-        IModel Model { get; }
     }
 }

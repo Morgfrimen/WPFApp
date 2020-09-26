@@ -3,10 +3,9 @@
 namespace WPFApp
 {
     /// <summary>
-    /// Логика взаимодействия для App.xaml
+    ///     Логика взаимодействия для App.xaml
     /// </summary>
+
     // ReSharper disable once RedundantExtendsListEntry
-    public partial class App : Application
-    {
-    }
+    public partial class App : Application { }
 }

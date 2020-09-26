@@ -8,6 +8,7 @@ namespace WPFApp.Models.Command
     public sealed class CommandSelectTreeViewItemXml : ICommand
     {
         private bool _flag;
+
         public bool CanExecute(object parameter)
         {
             return !_flag;
@@ -16,8 +17,9 @@ namespace WPFApp.Models.Command
         public void Execute(object parameter)
         {
             Frame frame = parameter as Frame;
+
             // ReSharper disable once PossibleNullReferenceException
-            _flag = frame.NavigationService.Navigate(new SpecificationPage());
+            _flag = frame.NavigationService.Navigate(root: new SpecificationPage());
         }
 
         public event EventHandler CanExecuteChanged
