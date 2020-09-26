@@ -85,12 +85,12 @@ namespace LogicalWork.ManagerSpecification
                 new ResultSpecification {NumberOrder = order.Name};
 
             //Получили коллекцию негабаритных частей заказа
-            IEnumerable<Item> notDimensionEnumerator = items.Where
-                (predicate: item => item.Weight >= MaxWeight);
+            IList<Item> notDimensionEnumerator = items.Where
+                (predicate: item => item.Weight >= MaxWeight).ToList();
 
             //Удаляем негабаритные части заказа
-            IEnumerable<Item> dimensionEnumerator = notDimensionEnumerator.ToList();
-            items = items.Except(second: dimensionEnumerator);
+            IList<Item> dimensionEnumerator = notDimensionEnumerator.ToList();
+            items = items.Except(second: dimensionEnumerator).ToList();
 
             //Случай, когда товаров для габаритов нет -> items пустой
             if (items.Count() == default)
@@ -102,11 +102,11 @@ namespace LogicalWork.ManagerSpecification
             }
 
             uint minWeight = items.Min(selector: item => item.Weight); //минимальный вес
-            IEnumerable<Item> bigContainer = items.Where
-                (predicate: item => item.Weight > MaxWeight - minWeight);
+            IList<Item> bigContainer = items.Where
+                (predicate: item => item.Weight > MaxWeight - minWeight).ToList();
 
             //Удаляем части с весьма большим весом, который входят только в один контейнер
-            items = items.Except(second: bigContainer);
+            items = items.Except(second: bigContainer).ToList();
 
             //Случай, когда все габаритные товары занимаю по одному контейнеру
             if (items.Count() == default)
